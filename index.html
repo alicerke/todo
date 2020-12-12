@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/node_modules/font-awesome/css/font-awesome.min.css">
+    <title>Todo</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="todo">
+        <div class="todo__header">
+            <div class="header__day"></div>
+            <div class="header__date"></div>
+        </div>
+        <div class="todo__content">
+            <div class="content__input">
+                <input type="text" class="todo__input" placeholder="Take the garbage out">
+                <button class="btn--add">
+                    <i class="fa fa-plus"></i>
+                </button>
+            </div>
+            <p class="content__pendingList">
+                You have <span class="counter">0</span> pending items.
+            </p>
+            <div class="content__pending"></div>
+            <div class="doneList--show">
+                <p class="content__doneList">
+                    Completed tasks: <span class="counter"></span>
+                </p>
+                <div class="content__done"></div>
+            </div>
+        </div>
+        <div class="todo__footer">
+            <button class="btn btn--complete">Show Complete</button>
+            <button class="btn btn--clear">Clear All</button>
+        </div>
+    </div>
+</div>
+
+
+    <script src="./assets/js/todo.js"></script>
+</body>
+</html>

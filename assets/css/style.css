@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background: linear-gradient(#b8623a, #a12f98);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.todo {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 500px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+@media only screen and (min-width: 576px) {
+    .todo {
+        max-width: 600px;
+    }
+}
+
+.todo__header, .todo__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+}
+.header__day {
+    color: #a12f98; 
+    font-size: 1.9rem; 
+}
+.header__date {
+    color: #6e6e6e;
+    margin: 0 .3rem ;
+    font-size: 1.2rem; 
+}
+
+.content__input {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.content__input input[type=text] {
+    padding: .75rem;
+    font-size: 1.2rem;
+    border: 1px solid grey;
+    border-radius: 10px;
+    width: 80%;
+    background: #f1f1f1;
+}
+  
+.btn--add {
+    width: 5rem;
+    padding: .75rem;
+    background: #2196F3;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    border-left: none;
+    cursor: pointer;
+}
+  
+.btn--add:hover {
+    background: #0b7dda;
+}
+  
+.todo__input::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.to-do {
+    background-color: rgb(235, 255, 236);
+    border: 1px solid rgb(253, 218, 236);
+    border-radius: 5px;
+    font-size: 22px;
+    height: 50px;
+    line-height: 50px;
+    margin: 1rem 0;
+    padding-left: 50px;
+    position: relative;
+}
+
+.add-todo {
+    background-color: #ffffff;
+    border: 1px solid rgb(201, 200, 200);
+    border-radius: 2px;
+    height: 21px;
+    position: absolute;
+    left: 10px;
+    top: 14px;
+    width: 21px;
+}
+
+.btn--dell {
+    cursor: pointer;
+    background-color: red;
+    font-size: 1.7rem;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    display: block;
+    height: 48px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 48px;
+    color: #ebebeb;
+}
+
+.to-do .btn--dell {
+    visibility: hidden;
+}
+
+.to-do.hovered .btn--dell {
+    visibility: visible;
+}
+
+.to-do-done {
+    background-color: rgb(235, 255, 236);
+    border: 1px solid rgb(253, 218, 236);
+    border-radius: 5px;
+    font-size: 22px;
+    height: 50px;
+    line-height: 50px;
+    margin: 1rem 0;
+    padding-left: 50px;
+    position: relative;
+    -webkit-text-decoration-line: line-through;
+    text-decoration-line: line-through;     
+}
+
+.add-done {
+    background-color: rgb(255, 0, 0);
+    border: 1px solid rgb(255, 0, 0);
+    border-radius: 2px;
+    height: 21px;
+    position: absolute;
+    left: 10px;
+    top: 14px;
+    width: 21px;
+    pointer-events: none;
+}
+
+.todo__footer {
+    text-align: center;
+    padding: 1rem;
+}
+
+.btn {
+        border: none;
+        background-color: transparent;
+        font-weight: 600;
+        padding: 0 1rem;
+        font-size: 1.1rem;
+        color: rgb(151, 151, 151);
+        outline-style: none;
+}
+
+.btn:hover, .btn:active {
+    color: #0b7dda;
+}
+
+.non-visible {
+    display: none;
+}
