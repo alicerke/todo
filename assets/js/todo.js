@@ -3,7 +3,7 @@
 ( function(){
 
     let todos = [];
-    let todosDone = [];
+    let todosPending = [];
     let index = 0;
 
     const todoDay = document.querySelector('.header__day');
@@ -14,6 +14,9 @@
     const counter = document.querySelector('.counter');
     const clearAllBtn = document.querySelector('.btn--clear');
     const todoListDone = document.querySelector('.content__done');
+    const showDoneListBtn = document.querySelector('.btn--complete');
+    const doneListContainer = document.querySelector('.doneList--show');
+    const doneListHideBtn = document.querySelector('.btn--hide');
 
     // Localstorage handler object.
     const localDB = {
@@ -77,6 +80,8 @@
     const setListeners = () => {
         addTodoBtn.addEventListener('click', addNewTodo);
         clearAllBtn.addEventListener('click', deleteAllTodo);
+        showDoneListBtn.addEventListener('click', showDoneList);
+        doneListHideBtn.addEventListener('click', hideDoneList);
 
     };
     
@@ -111,6 +116,7 @@
         };        
         const todo = { text: value, done: false, id: index,};
         todos.push(todo);
+        todosPending.push(todo);
         localDB.setItem('todos', todos);
         showTodo(todo, todoListPending);
         todoInput.value = ''; 
@@ -119,7 +125,6 @@
         pengingCounterStep();
     };
 
-    // Show todo in the list.
     const showTodo = (todo, parentTodo) => {
         const todoItem = document.createElement('div');        
         parentTodo.appendChild(todoItem);
@@ -151,6 +156,7 @@
         todos.forEach( item => {
             if ( item.id == deleteIndex) {
                 todos.pop(item);
+                todosPending.pop(item);
             };
         })
         localDB.removeItem('todos');
@@ -160,12 +166,13 @@
     };
 
     const pengingCounterStep = () => {
-        counter.textContent = todos.length;
+        counter.textContent = todosPending.length;
     };
 
     const deleteAllTodo = () => {
         localDB.removeItem('todos')
         todos = [];
+        todosPending = [];
         document.querySelectorAll('.to-do').forEach( item => item.remove());
         counter.textContent = 0;
     };
@@ -175,6 +182,7 @@
         todos.forEach( item => {
             if ( item.id == doneIndex) {
                 item.done = true;
+                todosPending.pop(item);
                 showTodoDone(item, todoListDone);
             };
             removeTodoElement(doneIndex);
@@ -190,6 +198,18 @@
             }
 
         })
+    }
+
+    const showDoneList = () => {
+        doneListContainer.classList.remove('non-visible');
+        doneListHideBtn.classList.remove('non-visible');
+        showDoneListBtn.classList.add('non-visible');
+    };
+
+    const hideDoneList = () => {
+        doneListHideBtn.classList.add('non-visible');
+        doneListContainer.classList.add('non-visible');
+        showDoneListBtn.classList.remove('non-visible');
     }
 
 
